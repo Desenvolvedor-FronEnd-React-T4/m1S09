@@ -1,14 +1,31 @@
 <!DOCTYPE html>
 <!--
   EXERCÍCIO 4 — Formulário completo da VaiTorcer (juntando a semana toda)
-  Tópicos: <form>, tipos de campo, radio/checkbox, validação nativa,
-           validação com JavaScript e feedback visual com classList
+  Base: o formulário completo do exercício 05 do dia 24/09.
+  Tópicos: <form>, tipos de campo, radio/checkbox, e as 3 camadas de
+           validação vistas nos exercícios 01, 02 e 03 de hoje:
+
+  CAMADA 1 — validação NATIVA do HTML (exercício 01)
+    "required" em nome, e-mail, telefone, cidade e datas — o navegador
+    bloqueia sozinho, sem nenhuma linha de JavaScript.
+
+  CAMADA 2 — validação com JAVASCRIPT (exercício 02)
+    O grupo de radio "pacote" NÃO tem "required" no HTML — é uma regra
+    que o navegador não sabe cobrar sozinho de um grupo de radio junto
+    com os outros campos, então o script.js verifica se algum foi
+    marcado antes de deixar o envio prosseguir.
+
+  CAMADA 3 — feedback visual com CLASSLIST (exercício 03)
+    A mensagem de erro/sucesso liga e desliga as classes "text-red" e
+    "text-green" com classList.add()/classList.remove(), do mesmo jeito
+    simétrico do exercício 03.
 
   O que fazer:
   1. Tente enviar vazio — o "required" bloqueia (validação nativa).
-  2. Preencha nome e e-mail, mas não marque nenhum pacote — mensagem
-     vermelha específica (validação com JavaScript).
-  3. Preencha tudo corretamente — mensagem verde + resumo do pedido.
+  2. Preencha nome, e-mail, telefone, cidade e datas, mas não marque
+     nenhum pacote — mensagem vermelha específica (validação JavaScript).
+  3. Marque um pacote e preencha tudo corretamente — mensagem verde e
+     o resumo completo do pedido aparece embaixo.
 -->
 <html lang="pt-BR">
 <head>
@@ -19,37 +36,99 @@
 </head>
 <body>
 
-  <h1>Orçamento de pacote — VaiTorcer</h1>
+  <h1>VaiTorcer — Orçamento de pacote</h1>
+  <p class="subtitulo">Preencha os dados para solicitar seu orçamento.</p>
 
   <form id="form-orcamento">
 
-    <!-- Camada 1: validação NATIVA do HTML — o navegador cuida sozinho -->
-    <label for="nome">Nome completo:</label>
-    <input type="text" id="nome" name="nome" required />
+    <fieldset>
+      <legend>Seus dados</legend>
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required />
+      <!-- CAMADA 1: required -> validação nativa, o navegador cuida sozinho -->
+      <label for="nome">Nome completo: <span class="obrigatorio">*</span></label>
+      <input type="text" id="nome" name="nome" placeholder="ex: Maria Silva" required />
 
-    <h2>Tipo de pacote</h2>
-    <!-- O HTML não tem nenhum atributo para "obrigar" um grupo de radio a ser marcado -->
-    <!-- isso vai ser a CAMADA 2 (validação com JavaScript), lá no script.js             -->
-    <div class="opcao">
-      <input type="radio" id="pacote-economico" name="pacote" value="Econômico" />
-      <label for="pacote-economico">Econômico</label>
-    </div>
-    <div class="opcao">
-      <input type="radio" id="pacote-conforto" name="pacote" value="Conforto" />
-      <label for="pacote-conforto">Conforto</label>
-    </div>
-    <div class="opcao">
-      <input type="radio" id="pacote-premium" name="pacote" value="Premium" />
-      <label for="pacote-premium">Premium</label>
-    </div>
+      <label for="email">E-mail: <span class="obrigatorio">*</span></label>
+      <input type="email" id="email" name="email" placeholder="ex: maria@email.com" required />
+
+      <label for="telefone">Telefone: <span class="obrigatorio">*</span></label>
+      <input type="tel" id="telefone" name="telefone" placeholder="(48) 90000-0000" required />
+    </fieldset>
+
+    <fieldset>
+      <legend>Destino e datas</legend>
+
+      <label for="cidade">Cidade-sede: <span class="obrigatorio">*</span></label>
+      <select id="cidade" name="cidade" required>
+        <option value="">Selecione...</option>
+        <option value="Cidade do México">Cidade do México</option>
+        <option value="Nova York">Nova York</option>
+        <option value="Los Angeles">Los Angeles</option>
+        <option value="Miami">Miami</option>
+        <option value="Toronto">Toronto</option>
+      </select>
+
+      <label for="data-ida">Data de ida: <span class="obrigatorio">*</span></label>
+      <input type="date" id="data-ida" name="data-ida" required />
+
+      <label for="data-volta">Data de volta: <span class="obrigatorio">*</span></label>
+      <input type="date" id="data-volta" name="data-volta" required />
+    </fieldset>
+
+    <fieldset>
+      <legend>Pacote</legend>
+
+      <p class="rotulo-grupo">Tipo de pacote (escolha só um): <span class="obrigatorio">*</span></p>
+
+      <!--
+        CAMADA 2: repare que NENHUM radio tem "required" aqui. O HTML
+        sozinho não valida esse grupo junto com o resto do formulário
+        do jeito que precisamos — por isso essa regra vira JavaScript
+        no script.js.
+      -->
+      <div class="opcao">
+        <input type="radio" id="pacote-economico" name="pacote" value="Econômico" />
+        <label for="pacote-economico">Econômico</label>
+      </div>
+      <div class="opcao">
+        <input type="radio" id="pacote-conforto" name="pacote" value="Conforto" />
+        <label for="pacote-conforto">Conforto</label>
+      </div>
+      <div class="opcao">
+        <input type="radio" id="pacote-premium" name="pacote" value="Premium" />
+        <label for="pacote-premium">Premium</label>
+      </div>
+
+      <p class="rotulo-grupo">Extras (pode marcar vários):</p>
+
+      <div class="opcao">
+        <input type="checkbox" id="ingresso" />
+        <label for="ingresso">Ingresso para o jogo</label>
+      </div>
+      <div class="opcao">
+        <input type="checkbox" id="seguro" />
+        <label for="seguro">Seguro viagem</label>
+      </div>
+      <div class="opcao">
+        <input type="checkbox" id="traslado" />
+        <label for="traslado">Traslado do aeroporto</label>
+      </div>
+    </fieldset>
+
+    <fieldset>
+      <legend>Observações</legend>
+
+      <label for="observacoes">Alguma informação extra?</label>
+      <textarea id="observacoes" name="observacoes" rows="4"></textarea>
+    </fieldset>
 
     <button type="submit">Solicitar orçamento</button>
+
   </form>
 
+  <!-- CAMADA 3: este parágrafo começa sem nenhuma classe — o script.js decide qual cor aplicar -->
   <p id="mensagem"></p>
+
   <div id="resumo"></div>
 
 </body>

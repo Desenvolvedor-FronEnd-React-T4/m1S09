@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panorama do Mercado de TI em Santa Catarina</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen antialiased flex flex-col justify-between">
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <span class="p-2 bg-blue-600/20 text-blue-400 rounded-lg border border-blue-500/30">
+                    <i class="fa-solid fa-chart-line text-xl"></i>
+                </span>
+                <div>
+                    <h1 class="text-base font-bold text-white leading-tight">Mercado TI • SC</h1>
+                    <p class="text-xs text-slate-400 hidden sm:block">Guia de Carreira & Oportunidades</p>
+                </div>
+            </div>
+            <nav class="flex items-center space-x-2 text-sm font-medium">
+                <a href="#estimativas" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md transition-colors">Vagas</a>
+                <a href="#requisitos" class="px-3 py-1.5 text-slate-300 hover:text-white hover:bg-slate-800 rounded-md transition-colors">Salários</a>
+                <a href="#plano" class="px-3 py-1.5 bg-blue-600 text-white hover:bg-blue-500 rounded-md transition-colors font-semibold">Plano de Ação</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12 flex-grow">
+
+        <!-- Hero Banner -->
+        <section class="relative bg-gradient-to-br from-slate-800 via-slate-900 to-blue-950 p-6 sm:p-10 rounded-2xl border border-slate-700/60 shadow-2xl overflow-hidden">
+            <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-blue-600/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="max-w-3xl relative z-10">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20 mb-4">
+                    <i class="fa-solid fa-graduation-cap"></i> Abordagem Pedagógica & Motivacional
+                </span>
+                <h2 class="text-2xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight mb-4">
+                    Panorama do Mercado de TI em <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400">Santa Catarina</span>
+                </h2>
+                <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+                    O mercado de tecnologia catarinense não parou; ele evoluiu. A busca impulsiva deu lugar a contratações estratégicas. Hoje, empresas de Florianópolis, Joinville, Blumenau e Chapecó procuram iniciantes qualificados, com boa lógica e portfólio prático.
+                </p>
+                <div class="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-300">
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700">
+                        <i class="fa-solid fa-check text-emerald-400"></i> Oportunidades Reais
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700">
+                        <i class="fa-solid fa-check text-emerald-400"></i> Foco em Front-End & React
+                    </div>
+                    <div class="flex items-center gap-2 bg-slate-800/80 px-3 py-2 rounded-lg border border-slate-700">
+                        <i class="fa-solid fa-check text-emerald-400"></i> Ecossistema ACATE em Alta
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- KPI Grid -->
+        <section class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-blue-500/40 transition-colors">
+                <div class="text-3xl font-extrabold text-blue-400 mb-1">+1.200</div>
+                <div class="text-xs text-slate-400 font-medium">Vagas Estimadas / Trimestre</div>
+            </div>
+            <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-emerald-500/40 transition-colors">
+                <div class="text-3xl font-extrabold text-emerald-400 mb-1">70%</div>
+                <div class="text-xs text-slate-400 font-medium">Demanda por React no Front</div>
+            </div>
+            <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-purple-500/40 transition-colors">
+                <div class="text-3xl font-extrabold text-purple-400 mb-1">R$ 3,8k</div>
+                <div class="text-xs text-slate-400 font-medium">Média Salarial Inicial (Jr)</div>
+            </div>
+            <div class="bg-slate-800/50 p-5 rounded-xl border border-slate-700/50 hover:border-amber-500/40 transition-colors">
+                <div class="text-3xl font-extrabold text-amber-400 mb-1">4 Polos</div>
+                <div class="text-xs text-slate-400 font-medium">Floripa, Joinville, Blumenau, Chapecó</div>
+            </div>
+        </section>
+
+        <!-- Data Table & Chart Section -->
+        <section id="estimativas" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-briefcase text-blue-400"></i> Volume de Vagas e Projeção Trimestral
+                </h3>
+                <p class="text-xs text-slate-400">Análise dos últimos 3 meses e estimativa de demanda para o próximo trimestre em SC.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Table -->
+                <div class="lg:col-span-2 bg-slate-800/40 rounded-xl border border-slate-700/60 overflow-hidden">
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-xs sm:text-sm">
+                            <thead class="bg-slate-800 text-slate-300 font-semibold uppercase text-[11px] tracking-wider border-b border-slate-700">
+                                <tr>
+                                    <th class="p-4">Perfil / Nível</th>
+                                    <th class="p-4">Últimos 3 Meses</th>
+                                    <th class="p-4">Próximos 3 Meses</th>
+                                    <th class="p-4">Foco Principal</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-800 text-slate-300">
+                                <tr class="hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-indigo-400"></span> Estágio TI / Dev
+                                    </td>
+                                    <td class="p-4">250 - 400</td>
+                                    <td class="p-4 text-emerald-400 font-medium">300 - 450</td>
+                                    <td class="p-4 text-slate-400 text-xs">Entrada acadêmica facilitada</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-blue-400"></span> Dev Front-End Jr
+                                    </td>
+                                    <td class="p-4">120 - 180</td>
+                                    <td class="p-4 text-emerald-400 font-medium">150 - 200</td>
+                                    <td class="p-4 text-slate-400 text-xs">React, Vue, HTML/CSS/JS forte</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-teal-400"></span> Dev Back-End Jr
+                                    </td>
+                                    <td class="p-4">180 - 250</td>
+                                    <td class="p-4 text-emerald-400 font-medium">200 - 280</td>
+                                    <td class="p-4 text-slate-400 text-xs">Node.js, C# (.NET), Java</td>
+                                </tr>
+                                <tr class="hover:bg-slate-800/30">
+                                    <td class="p-4 font-semibold text-white flex items-center gap-2">
+                                        <span class="w-2 h-2 rounded-full bg-amber-400"></span> Dev Full Stack Jr
+                                    </td>
+                                    <td class="p-4">220 - 320</td>
+                                    <td class="p-4 text-emerald-400 font-medium">250 - 350</td>
+                                    <td class="p-4 text-slate-400 text-xs">Líder em Startups e PMEs</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Doughnut Chart -->
+                <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/60 flex flex-col justify-between">
+                    <h4 class="text-xs font-semibold uppercase text-slate-400 tracking-wider mb-2 text-center">Distribuição por Perfil</h4>
+                    <div class="relative flex-grow flex items-center justify-center min-h-[200px]">
+                        <canvas id="jobsChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Requirements & Salary Grid -->
+        <section id="requisitos" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-layer-group text-emerald-400"></i> Condições de Entrada & Remuneração
+                </h3>
+                <p class="text-xs text-slate-400">O que as empresas catarinenses exigem para cada nível de atuação.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Estágio Card -->
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/60 space-y-4 hover:border-slate-600 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 text-xs font-semibold">Nível Inicial</span>
+                        <span class="text-sm font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">R$ 1.200 - R$ 2.200</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">1. Estágio em Desenvolvimento</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 mt-1 text-xs"></i>
+                            <span>Estar matriculado em curso Técnico, Tecnólogo ou Graduação.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 mt-1 text-xs"></i>
+                            <span>Lógica de programação e raciocínio estruturado bem consolidados.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-indigo-400 mt-1 text-xs"></i>
+                            <span>Proatividade, boa comunicação e vontade contínua de aprender.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-star text-amber-400 mt-1 text-xs"></i>
+                            <span class="text-slate-400">Diferencial: Projetos acadêmicos ou autorais publicados no GitHub.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Front-End Jr Card -->
+                <div class="bg-slate-800/50 rounded-xl p-6 border border-slate-700/60 space-y-4 hover:border-slate-600 transition-colors">
+                    <div class="flex items-center justify-between">
+                        <span class="px-2.5 py-1 rounded bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold">Nível Júnior</span>
+                        <span class="text-sm font-bold text-emerald-400 bg-emerald-500/10 px-2.5 py-1 rounded border border-emerald-500/20">R$ 3.000 - R$ 4.800</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-white">2. Desenvolvedor Front-End Júnior</h4>
+                    <ul class="space-y-2 text-xs sm:text-sm text-slate-300">
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1 text-xs"></i>
+                            <span><strong>Base Sólida:</strong> HTML5 semântico, CSS3 moderno e JavaScript ES6+.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1 text-xs"></i>
+                            <span><strong>Framework:</strong> Domínio de React.js (Líder em ~70% das vagas em SC).</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-check text-blue-400 mt-1 text-xs"></i>
+                            <span>Consumo de APIs RESTful, manipulando JSON e estado da aplicação.</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="fa-solid fa-star text-amber-400 mt-1 text-xs"></i>
+                            <span class="text-slate-400">Diferencial: Conhecimento em TypeScript, Tailwind CSS e Git/GitHub.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Value Prop Box -->
+            <div class="bg-gradient-to-r from-blue-900/40 to-slate-800/60 p-6 rounded-xl border border-blue-500/30">
+                <h4 class="text-base font-bold text-blue-300 mb-2 flex items-center gap-2">
+                    <i class="fa-solid fa-lightbulb"></i> Por que focar no Front-End é um diferencial estratégico?
+                </h4>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                    O Front-End é a interface direta entre a ideia do produto e a experiência do usuário. Quem domina a construção de telas rápidas, responsivas e limpas desenvolve uma base sólida para migrar futuramente para Full Stack ou evoluir na carreira como especialista em UI/UX e Frontend Architecture.
+                </p>
+            </div>
+        </section>
+
+        <!-- Action Plan Section -->
+        <section id="plano" class="space-y-6">
+            <div class="border-b border-slate-800 pb-3">
+                <h3 class="text-xl font-bold text-white flex items-center gap-2">
+                    <i class="fa-solid fa-rocket text-amber-400"></i> Plano de Ação Pedagogicamente Motivacional
+                </h3>
+                <p class="text-xs text-slate-400">Passos práticos para os alunos saírem da sala de aula direto para o mercado de SC.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/60 flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-sm">1</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Vá além dos trabalhos da aula</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Construa pelo menos 2 ou 3 projetos autorais (ex: dashboard de finanças, e-commerce básico ou integração com API pública) e mantenha-os online com código organizado no GitHub.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/60 flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-sm">2</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Domine a stack React + TypeScript</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            O mercado catarinense busca profissionais prontos para o ambiente corporativo. Combinar React com TypeScript eleva imediatamente a qualidade do seu perfil.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/60 flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-sm">3</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Conecte-se ao ecossistema local</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Cadastre-se nos canais da ACATE, participe de meetups presenciais no polo da sua região e mantenha seu LinkedIn atualizado focando nas tecnologias trabalhadas na aula.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bg-slate-800/40 p-5 rounded-xl border border-slate-700/60 flex items-start gap-4">
+                    <div class="w-8 h-8 rounded-full bg-blue-600 text-white font-bold flex items-center justify-center shrink-0 text-sm">4</div>
+                    <div>
+                        <h4 class="text-sm font-bold text-white mb-1">Explore portas de entrada estratégicas</h4>
+                        <p class="text-xs text-slate-400 leading-relaxed">
+                            Muitas trajetórias de sucesso começam em vagas de Estágio, Suporte Dev (N2) ou QA em empresas locais de software, evoluindo internamente para Front-End Jr.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quote Banner -->
+            <div class="bg-slate-800 p-6 rounded-2xl border border-slate-700 text-center space-y-2">
+                <p class="text-sm sm:text-base font-semibold text-white italic">
+                    "O mercado não se fechou; ele se tornou mais exigente. Quem pratica e constrói código todos os dias garante seu lugar na indústria."
+                </p>
+                <p class="text-xs text-slate-400 font-medium uppercase tracking-wider">Foco na Prática • Consistência Diária</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 border-t border-slate-800 py-6 text-center text-xs text-slate-500">
+        <p>Conteúdo pedagógico e informativo direcionado para turmas de Desenvolvimento Front-End • SC</p>
+    </footer>
+
+    <!-- Chart JS Script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('jobsChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Estágio Dev', 'Full Stack Jr', 'Back-End Jr', 'Front-End Jr'],
+                    datasets: [{
+                        data: [38, 32, 18, 12],
+                        backgroundColor: [
+                            '#6366f1', // Indigo (Estágio)
+                            '#3b82f6', // Blue (Full Stack)
+                            '#14b8a6', // Teal (Back-End)
+                            '#f59e0b'  // Amber (Front-End)
+                        ],
+                        borderWidth: 2,
+                        borderColor: '#1e293b'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                color: '#94a3b8',
+                                font: { size: 11, family: 'Inter' },
+                                boxWidth: 12,
+                                padding: 10
+                            }
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+        });
+    </script>
+</body>
+</html>

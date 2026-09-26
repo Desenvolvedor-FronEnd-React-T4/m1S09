@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mercado de Tecnologia em Santa Catarina — Guia para quem está começando</title>
+<meta name="description" content="Guia motivacional e prático sobre o mercado de tecnologia em Santa Catarina para iniciantes em Desenvolvimento Front-End.">
+<style>
+:root{
+  --navy:#102A43;
+  --teal:#007E7A;
+  --gold:#ECB11F;
+  --light:#F3F7FA;
+  --mid:#52606D;
+  --dark:#172B4D;
+  --green:#16825D;
+  --orange:#D97706;
+  --red:#B42318;
+  --white:#fff;
+  --border:#D9E2EC;
+  --shadow:0 10px 30px rgba(16,42,67,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  color:var(--dark);
+  background:#eef3f7;
+  line-height:1.65;
+}
+a{color:var(--teal);font-weight:700}
+.container{width:min(1120px,calc(100% - 32px));margin:auto}
+.hero{
+  min-height:650px;
+  display:flex;
+  align-items:center;
+  background:
+    radial-gradient(circle at 90% 15%,rgba(236,177,31,.22),transparent 26%),
+    radial-gradient(circle at 5% 90%,rgba(0,126,122,.28),transparent 28%),
+    var(--navy);
+  color:white;
+  position:relative;
+  overflow:hidden;
+}
+.hero:after{
+  content:"";
+  position:absolute;
+  width:520px;height:520px;border:1px solid rgba(255,255,255,.12);
+  border-radius:50%;right:-160px;bottom:-180px;
+}
+.badge{
+  display:inline-flex;padding:7px 13px;border:1px solid rgba(255,255,255,.25);
+  border-radius:999px;font-size:.78rem;letter-spacing:.08em;text-transform:uppercase;
+  background:rgba(255,255,255,.06)
+}
+h1{font-size:clamp(2.5rem,6vw,5.3rem);line-height:.98;margin:22px 0;max-width:900px;letter-spacing:-.055em}
+.hero p{font-size:1.15rem;max-width:760px;color:#dce7f0}
+.hero .accent{color:#f5ca47}
+.hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.btn{
+  display:inline-block;text-decoration:none;padding:12px 18px;border-radius:10px;
+  font-weight:800;border:1px solid rgba(255,255,255,.2)
+}
+.btn.primary{background:var(--gold);color:var(--navy)}
+.btn.secondary{color:white;background:rgba(255,255,255,.07)}
+section{padding:72px 0}
+section:nth-of-type(even){background:white}
+.section-head{max-width:780px;margin-bottom:32px}
+.eyebrow{color:var(--teal);font-weight:900;text-transform:uppercase;letter-spacing:.12em;font-size:.78rem}
+h2{font-size:clamp(1.8rem,3vw,3rem);line-height:1.08;margin:7px 0 15px;letter-spacing:-.035em;color:var(--navy)}
+h3{color:var(--teal);margin-bottom:8px}
+.lead{font-size:1.08rem;color:var(--mid)}
+.quote{
+  margin:30px 0;padding:24px 28px;border-left:5px solid var(--gold);
+  background:var(--light);border-radius:0 14px 14px 0;
+  font-size:1.25rem;font-weight:850;color:var(--navy)
+}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:28px 0}
+.metric{
+  background:var(--light);border:1px solid var(--border);border-radius:15px;
+  padding:22px;text-align:center;box-shadow:var(--shadow)
+}
+.metric strong{display:block;font-size:2rem;line-height:1;color:var(--teal);margin-bottom:9px}
+.metric span{font-size:.86rem;color:var(--mid)}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.card{
+  background:white;border:1px solid var(--border);border-radius:18px;padding:26px;
+  box-shadow:var(--shadow)
+}
+.card.soft{background:var(--light);box-shadow:none}
+.chart-card{
+  background:white;border:1px solid var(--border);border-radius:18px;padding:22px;
+  box-shadow:var(--shadow);overflow:hidden
+}
+.chart-title{font-weight:850;color:var(--navy);font-size:1.05rem;margin-bottom:15px}
+svg{width:100%;height:auto;display:block}
+table{width:100%;border-collapse:collapse;background:white;border:1px solid var(--border);border-radius:14px;overflow:hidden}
+th{background:var(--navy);color:white;text-align:left;padding:13px;font-size:.82rem}
+td{padding:13px;border-top:1px solid var(--border);font-size:.9rem;vertical-align:top}
+tr:nth-child(even) td{background:var(--light)}
+.pill-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.pill{
+  padding:18px;background:white;border:1px solid var(--border);border-radius:14px;
+  font-weight:800;color:var(--navy);text-align:center
+}
+.stack{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:14px
+}
+.stack .step{
+  position:relative;background:white;border:1px solid var(--border);border-radius:15px;padding:22px
+}
+.step small{color:var(--teal);font-weight:900;text-transform:uppercase}
+ul{padding-left:20px}
+li{margin:8px 0}
+.highlight{
+  border:2px solid rgba(0,126,122,.25);background:linear-gradient(135deg,#f1fbfa,#fff);
+  border-radius:20px;padding:30px
+}
+.big-number{font-size:clamp(2.5rem,7vw,5rem);font-weight:950;line-height:.9;color:var(--teal)}
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.timeline .card{border-top:5px solid var(--teal)}
+.footer{background:var(--navy);color:#dce7f0;padding:45px 0}
+.footer h2{color:white}
+.source-list a{display:block;margin:10px 0}
+.note{font-size:.82rem;color:var(--mid)}
+@media(max-width:800px){
+  .metrics,.grid,.stack,.timeline{grid-template-columns:1fr}
+  .pill-grid{grid-template-columns:repeat(2,1fr)}
+  section{padding:52px 0}
+  .hero{min-height:560px}
+  .container{width:min(100% - 24px,1120px)}
+  table{display:block;overflow-x:auto;white-space:normal}
+}
+@media(max-width:480px){
+  .pill-grid{grid-template-columns:1fr}
+  h1{font-size:2.8rem}
+}
+@media print{
+  body{background:white}
+  .hero{min-height:auto;padding:70px 0}
+  section{page-break-inside:avoid}
+  .btn{display:none}
+  .card,.metric,.chart-card{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero" id="top">
+  <div class="container">
+    <span class="badge">Guia pedagógico • Setembro de 2026</span>
+    <h1>O mercado existe.<br><span class="accent">Agora é hora de construir</span> seu caminho até ele.</h1>
+    <p>Um panorama do mercado de tecnologia em Santa Catarina para quem está começando: estágio, trainee, Júnior, Front-End, Back-End e Full Stack.</p>
+    <p><strong>Julho–setembro de 2026</strong> + perspectiva para <strong>outubro–dezembro de 2026</strong>.</p>
+    <div class="hero-actions">
+      <a class="btn primary" href="#mercado">Explorar o mercado</a>
+      <a class="btn secondary" href="#plano">Meu plano de 90 dias</a>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="mercado">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">01 • A realidade</div>
+    <h2>Existe mercado — e ele é grande.</h2>
+    <p class="lead">Santa Catarina possui um dos ecossistemas de tecnologia mais relevantes do Brasil. Isso não significa que toda vaga seja de entrada; significa que existe escala e diversidade de empresas para criar diferentes portas.</p>
+  </div>
+  <div class="metrics">
+    <div class="metric"><strong>102,2 mil</strong><span>empregos formais em tecnologia em SC</span></div>
+    <div class="metric"><strong>34,2 mil</strong><span>empresas de tecnologia</span></div>
+    <div class="metric"><strong>17.960</strong><span>vagas de desenvolvedores projetadas para 2026</span></div>
+  </div>
+  <div class="grid">
+    <div class="card">
+      <h3>Onde está a concentração?</h3>
+      <p>A Grande Florianópolis concentra <strong>53,3%</strong> dos trabalhadores de tecnologia do estado.</p>
+      <p>O Norte catarinense também vem ganhando espaço, com crescimento de <strong>13,7%</strong> nos empregos de tecnologia em 2025.</p>
+    </div>
+    <div class="card soft">
+      <h3>Não é “Florianópolis ou nada”</h3>
+      <p>Monitore também Joinville, Jaraguá do Sul, Blumenau, Gaspar, Itajaí, Balneário Camboriú, Chapecó, Criciúma, Tubarão, Lages e suas regiões.</p>
+    </div>
+  </div>
+  <div class="quote">“O mercado não está fácil. Mas os dados também não sustentam a ideia de que o mercado está fechado para quem está começando.”</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">02 • Demanda</div>
+    <h2>Desenvolvedores estão no centro da demanda.</h2>
+    <p class="lead">A ACATE/Sebrae projeta 33.432 novas vagas em tecnologia em 2026. Desse total, 17.960 são projetadas para desenvolvedores.</p>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Projeções de demanda em Santa Catarina</div>
+    <svg viewBox="0 0 900 430" role="img" aria-label="Gráfico de linhas com projeções de vagas de tecnologia e desenvolvedores em 2025, 2026 e 2027">
+      <line x1="90" y1="350" x2="850" y2="350" stroke="#D9E2EC"/>
+      <line x1="90" y1="270" x2="850" y2="270" stroke="#E8EEF3"/>
+      <line x1="90" y1="190" x2="850" y2="190" stroke="#E8EEF3"/>
+      <line x1="90" y1="110" x2="850" y2="110" stroke="#E8EEF3"/>
+      <text x="30" y="355" font-size="14">0</text><text x="20" y="275" font-size="14">10k</text>
+      <text x="20" y="195" font-size="14">20k</text><text x="20" y="115" font-size="14">30k</text>
+      <polyline points="140,140 470,83 800,40" fill="none" stroke="#007E7A" stroke-width="5"/>
+      <polyline points="140,231 470,206 800,258" fill="none" stroke="#ECB11F" stroke-width="5"/>
+      <circle cx="140" cy="140" r="7" fill="#007E7A"/><circle cx="470" cy="83" r="7" fill="#007E7A"/><circle cx="800" cy="40" r="7" fill="#007E7A"/>
+      <circle cx="140" cy="231" r="7" fill="#ECB11F"/><circle cx="470" cy="206" r="7" fill="#ECB11F"/><circle cx="800" cy="258" r="7" fill="#ECB11F"/>
+      <text x="118" y="385" font-size="15">2025</text><text x="448" y="385" font-size="15">2026</text><text x="778" y="385" font-size="15">2027</text>
+      <text x="110" y="125" font-size="13">26.203</text><text x="440" y="68" font-size="13">33.432</text><text x="770" y="25" font-size="13">38.737</text>
+      <text x="110" y="220" font-size="13">14.906</text><text x="440" y="195" font-size="13">17.960</text><text x="770" y="247" font-size="13">11.472</text>
+      <rect x="560" y="375" width="15" height="15" fill="#007E7A"/><text x="582" y="388" font-size="13">Tecnologia</text>
+      <rect x="680" y="375" width="15" height="15" fill="#ECB11F"/><text x="702" y="388" font-size="13">Desenvolvedores</text>
+    </svg>
+  </div>
+  <p class="note">Fonte: projeções ACATE/Sebrae. São projeções de demanda, não um contador de anúncios publicados.</p>
+  <div class="highlight">
+    <div class="big-number">≈ 4.490</div>
+    <h3>oportunidades de desenvolvimento em um trimestre, como ordem de grandeza</h3>
+    <p>Cálculo pedagógico: 17.960 ÷ 12 × 3, assumindo distribuição linear ao longo do ano.</p>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">03 • Porta de entrada</div>
+    <h2>E para quem está começando?</h2>
+    <p class="lead">Não existe, na projeção oficial, uma divisão por senioridade. Por isso, os números abaixo são cenários didáticos — não uma contagem oficial de vagas Júnior.</p>
+  </div>
+  <div class="chart-card">
+    <div class="chart-title">Estimativa pedagógica de oportunidades de entrada por trimestre</div>
+    <svg viewBox="0 0 900 400" role="img" aria-label="Gráfico de barras com cenários de 10, 20 e 30 por cento">
+      <line x1="100" y1="325" x2="850" y2="325" stroke="#D9E2EC"/>
+      <line x1="100" y1="245" x2="850" y2="245" stroke="#E8EEF3"/>
+      <line x1="100" y1="165" x2="850" y2="165" stroke="#E8EEF3"/>
+      <line x1="100" y1="85" x2="850" y2="85" stroke="#E8EEF3"/>
+      <text x="50" y="330" font-size="13">0</text><text x="35" y="250" font-size="13">500</text><text x="35" y="170" font-size="13">1.000</text><text x="35" y="90" font-size="13">1.500</text>
+      <rect x="170" y="253" width="130" height="72" rx="8" fill="#007E7A"/>
+      <rect x="385" y="181" width="130" height="144" rx="8" fill="#ECB11F"/>
+      <rect x="600" y="110" width="130" height="215" rx="8" fill="#102A43"/>
+      <text x="206" y="240" font-weight="700" font-size="16">≈449</text>
+      <text x="421" y="168" font-weight="700" font-size="16">≈898</text>
+      <text x="632" y="97" font-weight="700" font-size="16">≈1.347</text>
+      <text x="184" y="350" font-size="14">Conservador</text><text x="410" y="350" font-size="14">Intermediário</text><text x="636" y="350" font-size="14">Ampliado</text>
+      <text x="210" y="372" font-size="12">10%</text><text x="437" y="372" font-size="12">20%</text><text x="663" y="372" font-size="12">30%</text>
+    </svg>
+  </div>
+  <div class="quote">A mensagem não é “há 898 vagas esperando por você”. A mensagem é: <strong>há escala de mercado suficiente para justificar preparação, tentativa e persistência.</strong></div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">04 • O que os anúncios mostram</div>
+    <h2>Existem portas reais de entrada.</h2>
+    <p class="lead">Em 24/09/2026, uma busca no Indeed por “estágio desenvolvedor” em Santa Catarina retornava 12 resultados naquele momento. Esse número é um retrato de um portal em um instante, não o total do estado.</p>
+  </div>
+  <table>
+    <thead><tr><th>Porta de entrada</th><th>O que aparece</th><th>O que a empresa tende a observar</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Estágio</strong></td><td>Desenvolvimento, QA, UX/UI</td><td>Curso em andamento, fundamentos, curiosidade, comunicação</td></tr>
+      <tr><td><strong>Júnior</strong></td><td>Front, Back, Full Stack</td><td>Base técnica + projetos + capacidade de executar tarefas</td></tr>
+      <tr><td><strong>Trainee / Academia</strong></td><td>Formação acelerada</td><td>Potencial, lógica, aprendizagem e aderência à trilha</td></tr>
+      <tr><td><strong>Projeto / Portfólio</strong></td><td>Experiência demonstrável</td><td>GitHub, deploy, README, qualidade e explicação do projeto</td></tr>
+    </tbody>
+  </table>
+  <div class="grid" style="margin-top:22px">
+    <div class="card">
+      <h3>Exemplo de estágio</h3>
+      <p>Uma vaga de estágio Full Stack em Florianópolis encontrada no levantamento oferecia <strong>R$ 1.500</strong>, modelo híbrido, mentoria e code review.</p>
+      <p>Projetos pessoais, freelas ou open source apareciam como diferenciais.</p>
+    </div>
+    <div class="card soft">
+      <h3>O que isso significa?</h3>
+      <p>A empresa não está necessariamente procurando alguém pronto. Ela pode estar procurando alguém que <strong>saiba o básico, consiga construir algo e tenha capacidade de aprender</strong>.</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">05 • Competências</div>
+    <h2>Você não precisa saber tudo. Precisa saber construir.</h2>
+    <p class="lead">Para uma formação Front-End, existe uma sequência bastante concreta de competências.</p>
+  </div>
+  <div class="stack">
+    <div class="step"><small>Fundação</small><h3>HTML + CSS + JavaScript</h3><p>Lógica, semântica, responsividade e fundamentos.</p></div>
+    <div class="step"><small>Profissionalização</small><h3>Git + GitHub + APIs</h3><p>Versionamento, JSON, REST, debugging e integração.</p></div>
+    <div class="step"><small>Expansão</small><h3>React/Angular + TypeScript</h3><p>Componentização, tipagem e desenvolvimento moderno.</p></div>
+  </div>
+  <div class="pill-grid" style="margin-top:18px">
+    <div class="pill">HTML5</div><div class="pill">CSS3</div><div class="pill">JavaScript</div><div class="pill">Git/GitHub</div>
+    <div class="pill">APIs REST</div><div class="pill">React</div><div class="pill">Angular</div><div class="pill">TypeScript</div>
+    <div class="pill">Responsividade</div><div class="pill">Figma/UI</div><div class="pill">Testes</div><div class="pill">Deploy</div>
+  </div>
+  <div class="quote">Você não precisa ser Full Stack no primeiro emprego. Mas entender o fluxo <strong>Front-End → API → Back-End → Banco de Dados</strong> aumenta sua visão profissional.</div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">06 • Condições de entrada</div>
+    <h2>O que separa “estou estudando” de “estou pronto para tentar”?</h2>
+  </div>
+  <table>
+    <thead><tr><th>Expectativa comum</th><th>Como você pode demonstrar</th></tr></thead>
+    <tbody>
+      <tr><td>Fundamentos técnicos</td><td>Projetos pequenos, exercícios e código legível</td></tr>
+      <tr><td>Git/GitHub</td><td>Repositórios organizados, commits e README</td></tr>
+      <tr><td>Experiência prática</td><td>Projeto publicado, freelance, projeto acadêmico ou open source</td></tr>
+      <tr><td>Trabalho em equipe</td><td>Participação em projetos e boa comunicação</td></tr>
+      <tr><td>Capacidade de aprender</td><td>Explicar como resolveu problemas e pesquisou soluções</td></tr>
+      <tr><td>Inglês técnico</td><td>Documentação, termos de programação e leitura de erros</td></tr>
+      <tr><td>Disponibilidade</td><td>Considerar estágio presencial/híbrido quando fizer sentido</td></tr>
+    </tbody>
+  </table>
+  <div class="metrics">
+    <div class="metric"><strong>≈ R$ 1.500</strong><span>exemplos de bolsas de estágio observadas</span></div>
+    <div class="metric"><strong>R$ 2,5–5,5 mil+</strong><span>faixa observada em alguns anúncios Júnior</span></div>
+    <div class="metric"><strong>Não é média</strong><span>são exemplos de anúncios, não estatística salarial oficial</span></div>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">07 • Onde procurar</div>
+    <h2>Amplie o seu mapa.</h2>
+  </div>
+  <div class="grid">
+    <div class="card"><h3>Grande Florianópolis</h3><p>Florianópolis • São José • Palhoça</p></div>
+    <div class="card"><h3>Norte</h3><p>Joinville • Jaraguá do Sul • São Bento do Sul</p></div>
+    <div class="card"><h3>Vale / Foz</h3><p>Blumenau • Gaspar • Itajaí • Balneário Camboriú</p></div>
+    <div class="card"><h3>Outras regiões</h3><p>Chapecó • Criciúma • Tubarão • Lages e regiões próximas</p></div>
+  </div>
+  <div class="quote">Para a primeira oportunidade, não limite sua busca apenas ao home office. Presencial e híbrido também podem ser portas de entrada.</div>
+</div>
+</section>
+
+<section id="plano">
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">08 • Seu próximo passo</div>
+    <h2>Plano de 90 dias: transformar estudo em evidência.</h2>
+    <p class="lead">A meta não é “estar pronto para tudo”. É chegar ao final de 90 dias com algo concreto para apresentar.</p>
+  </div>
+  <div class="timeline">
+    <div class="card"><h3>Dias 1–30</h3><ul><li>Reforçar HTML, CSS e JS</li><li>Git/GitHub</li><li>1 projeto pequeno</li><li>README bem feito</li></ul></div>
+    <div class="card"><h3>Dias 31–60</h3><ul><li>React ou Angular</li><li>TypeScript</li><li>API REST</li><li>Projeto principal publicado</li></ul></div>
+    <div class="card"><h3>Dias 61–90</h3><ul><li>Portfólio</li><li>CV e LinkedIn</li><li>Simulação de entrevista</li><li>Candidaturas qualificadas</li></ul></div>
+  </div>
+  <div class="highlight" style="margin-top:24px">
+    <h3>Meta de processo</h3>
+    <div class="big-number">5–10</div>
+    <p><strong>candidaturas qualificadas por semana</strong>.</p>
+    <p>Não é promessa de contratação. É uma meta para criar movimento, testar seu posicionamento e aprender com cada processo seletivo.</p>
+  </div>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">09 • Realidade + esperança</div>
+    <h2>Você não precisa chegar pronto.</h2>
+  </div>
+  <div class="grid">
+    <div class="card soft"><h3>Não espere…</h3><ul><li>“Saber tudo” para aplicar.</li><li>Ter 5 anos de experiência.</li><li>Um curso resolver tudo sozinho.</li><li>A vaga perfeita.</li><li>A motivação aparecer primeiro.</li></ul></div>
+    <div class="card"><h3>Comece a…</h3><ul><li>Aplicar quando já conseguir demonstrar fundamentos.</li><li>Construir projetos que mostrem capacidade.</li><li>Usar o curso como ponto de partida.</li><li>Entrar por uma porta e continuar crescendo.</li><li>Criar rotina e deixar o progresso gerar confiança.</li></ul></div>
+  </div>
+  <div class="quote">Você não precisa chegar ao mercado como um profissional pronto. <strong>Precisa chegar como alguém que já começou a se tornar profissional.</strong></div>
+  <p class="lead">O primeiro projeto não precisa ser extraordinário. Precisa existir. O primeiro processo seletivo não precisa terminar em contratação. Precisa ensinar. O primeiro “sim” pode começar pequeno — e ainda assim mudar sua trajetória.</p>
+</div>
+</section>
+
+<section>
+<div class="container">
+  <div class="section-head">
+    <div class="eyebrow">10 • Fontes</div>
+    <h2>Dados com transparência.</h2>
+    <p class="lead">Este material combina dados oficiais/setoriais e observações de anúncios. Quando não existe uma série oficial por senioridade, os números de entrada são apresentados como estimativas.</p>
+  </div>
+  <div class="card source-list">
+    <a href="https://www.acate.com.br/noticias/observatorio-acate-2026-santa-catarina-se-torna-segundo-maior-polo-de-empregos-em-tecnologia-do-brasil/" target="_blank" rel="noopener">Observatório ACATE 2026 — empregos, empresas, remuneração e distribuição regional</a>
+    <a href="https://www.acate.com.br/wp-content/uploads/2026/05/Relatorio-Anual-de-Atividades-2025-1-1.pdf" target="_blank" rel="noopener">ACATE — projeções de vagas e demanda por desenvolvedores</a>
+    <a href="https://www.acate.com.br/noticias/setor-de-tecnologia-deve-contratar-100-mil-profissionais/" target="_blank" rel="noopener">ACATE — demanda e contratação no setor de tecnologia</a>
+    <a href="https://br.indeed.com/q-est%C3%A1gio-desenvolvedor-l-santa-catarina-vagas.html" target="_blank" rel="noopener">Indeed — snapshot de vagas de estágio/desenvolvimento em SC</a>
+    <a href="https://sctec.scti.sc.gov.br/carreira-tech-2026/" target="_blank" rel="noopener">SCTEC — Carreira Tech 2026</a>
+  </div>
+  <div class="card soft" style="margin-top:20px">
+    <h3>Notas metodológicas</h3>
+    <ul>
+      <li>As 17.960 vagas de desenvolvedores são projeção anual para 2026, não contagem de anúncios.</li>
+      <li>≈4.490 por trimestre assume distribuição linear das vagas ao longo do ano.</li>
+      <li>Os cenários de 10%, 20% e 30% para entrada são hipóteses didáticas.</li>
+      <li>Portais de emprego mudam diariamente e podem conter duplicidades ou anúncios expirados.</li>
+      <li>Faixas salariais citadas são exemplos observados em anúncios, não médias estatísticas.</li>
+    </ul>
+  </div>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container">
+  <h2>Seu ponto de partida não precisa ser perfeito.</h2>
+  <p>Ele precisa ser real.</p>
+  <p>Desenvolvimento Front-End • Santa Catarina • Setembro de 2026</p>
+</div>
+</footer>
+
+</body>
+</html>
